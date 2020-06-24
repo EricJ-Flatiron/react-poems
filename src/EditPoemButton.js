@@ -16,13 +16,16 @@ export class EditPoemButton extends React.Component {
     handleSubmit = () => {
         this.hideModal()
         // What else should we do onSubmit?
+        console.log("EDIT", this.props.poem)
+        console.log("EDIT UPDATE", this.state.content)
+        return this.props.editPoem(this.props.poem, this.state.content)
     }
 
     render(){
         const { isShowingModal } = this.state
         return(
             <>
-                <button className="ui purple button" onClick={this.showModal}>Edit</button>
+                <button className="ui purple button" onClick={this.showModal} >Edit</button>
                 <div 
                     className={`ui modal ${isShowingModal ? 'active' : ''}`} 
                     style={{ position: 'fixed', top: '10%', left: '10%'}}
